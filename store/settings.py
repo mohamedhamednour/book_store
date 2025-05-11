@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["*"]
 AUTH_USER_MODEL = 'userapp.User'
 # Application definition
 
-APPS =   ['userapp']
+APPS =   ['userapp', 'bookapp']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
