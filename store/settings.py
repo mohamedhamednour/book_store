@@ -28,10 +28,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
-# AUTH_USER_MODEL = 'userapp.User'
+AUTH_USER_MODEL = 'userapp.User'
 # Application definition
 
-# APP =   ['userapp']
+APPS =   ['userapp']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework'
-] 
+]  + APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
