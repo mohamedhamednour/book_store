@@ -1,4 +1,3 @@
-
 from rest_framework import mixins, viewsets
 
 
@@ -10,9 +9,8 @@ from .models import User
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-class UserViewSet(
-    mixins.RetrieveModelMixin, viewsets.GenericViewSet
-):
+
+class UserViewSet(mixins.RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = []
