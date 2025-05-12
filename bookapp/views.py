@@ -21,7 +21,9 @@ class ReviewViewSet(
     queryset = models.Review.objects.all().select_related("book")
     serializer_class = serializers.ReviewSerializer
     filter_backends = [DjangoFilterBackend]
-    filterset_class = filters.ReviewFilter
+    filterset_class = (
+        filters.ReviewFilter
+    )  ## Added a dedicated ReviewViewSet with filtering by book_id to avoid unnecessary data retrieval in book listings. This ensures lightweight data for books when reviews are not required
 
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
