@@ -24,5 +24,4 @@ class BookSerializer(serializers.ModelSerializer):
             "description",
             "count_comments",
             "top_rating",
-            "reviews",
         ]
