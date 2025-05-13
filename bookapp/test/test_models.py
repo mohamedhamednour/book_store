@@ -1,4 +1,4 @@
-from django.test import TestCase 
+from django.test import TestCase
 from bookapp.factories import BookFactory, ReviewFactory
 from bookapp.models import Book, Review
 from userapp.factories import UserFactory

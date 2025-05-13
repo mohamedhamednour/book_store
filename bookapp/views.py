@@ -1,8 +1,8 @@
 from rest_framework import viewsets, mixins
-from rest_framework.permissions import AllowAny, IsAuthenticated
+from rest_framework.permissions import AllowAny
 from django_filters.rest_framework import DjangoFilterBackend
 
-from . import models, serializers, filters
+from . import models, serializers, filters, permission
 
 
 class BookViewSet(viewsets.ReadOnlyModelViewSet):
@@ -16,6 +16,7 @@ class ReviewViewSet(
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
+    mixins.CreateModelMixin,
     viewsets.GenericViewSet,
 ):
 
@@ -29,4 +30,4 @@ class ReviewViewSet(
     def get_permissions(self):
         if self.action in ["list", "retrieve"]:
             return [AllowAny()]
-        return [IsAuthenticated()]
+        return [permission.IsOwnerAuthenticated()]
