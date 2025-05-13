@@ -8,6 +8,7 @@ from . import models, serializers, filters
 class BookViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = models.Book.objects.all().info_books().order_by("-top_rating")
     serializer_class = serializers.BookSerializer
+    filterset_fields = ['title' , 'author']
 
 
 class ReviewViewSet(
